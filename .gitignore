@@ -60,4 +60,3 @@ crashlytics-build.properties
 fabric.properties
 .gitignore
 .gradle/
-src/
