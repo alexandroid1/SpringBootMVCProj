@@ -21,4 +21,8 @@ public class StudentService {
     public Collection<Student> getAllStudents(){
         return this.studentDAO.getAllStudents();
     }
+
+    public Student getStudentByID(int id){
+        return this.studentDAO.getStudentByID(id);
+    }
 }

@@ -31,4 +31,8 @@ public class StudentDao {
         return this.students.values();
     }
 
+    public Student getStudentByID(int id){
+        return this.students.get(id);
+    }
+
 }
