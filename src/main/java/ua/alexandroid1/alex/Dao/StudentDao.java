@@ -27,12 +27,18 @@ public class StudentDao {
         };
     }
 
+    // get all
     public Collection<Student> getAllStudents(){
         return this.students.values();
     }
 
+    //get one by id
     public Student getStudentByID(int id){
         return this.students.get(id);
     }
 
+    // remove one by id
+    public void removeStudentById(int id) {
+        this.students.remove(id);
+    }
 }

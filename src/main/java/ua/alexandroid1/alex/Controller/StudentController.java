@@ -21,15 +21,23 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    // for all
+    // for getting all
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
 
-    // for one choosing
+    // for one choosing by id
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Student getStudentById(@PathVariable("id") int id){
         return studentService.getStudentByID(id);
     }
+
+    // for delete one by id
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteStudentById(@PathVariable("id") int id){
+        studentService.removeStudentById(id);
+    }
+
+
 }
