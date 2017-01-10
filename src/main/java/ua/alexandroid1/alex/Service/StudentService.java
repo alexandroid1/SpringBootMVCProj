@@ -2,7 +2,7 @@ package ua.alexandroid1.alex.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.alexandroid1.alex.Dao.StudentDao;
+import ua.alexandroid1.alex.Dao.FakeStudentDao;
 import ua.alexandroid1.alex.Entity.Student;
 
 import java.util.Collection;
@@ -16,30 +16,30 @@ import java.util.Collection;
 public class StudentService {
 
     @Autowired
-    private StudentDao studentDAO;
+    private FakeStudentDao fakeStudentDAO;
 
     // for getting all
     public Collection<Student> getAllStudents(){
-        return this.studentDAO.getAllStudents();
+        return this.fakeStudentDAO.getAllStudents();
     }
 
     // for choosing one by id
     public Student getStudentByID(int id){
-        return this.studentDAO.getStudentByID(id);
+        return this.fakeStudentDAO.getStudentByID(id);
     }
 
     // for deleting one by id
     public void removeStudentById(int id) {
-        this.studentDAO.removeStudentById(id);
+        this.fakeStudentDAO.removeStudentById(id);
     }
 
     // for updating one by id
     public void updateStudent(Student student){
-        this.studentDAO.updateStudent(student);
+        this.fakeStudentDAO.updateStudent(student);
     }
 
     // for inserting one new
     public void insertStudent(Student student) {
-        this.studentDAO.insertStudentToDB(student);
+        this.fakeStudentDAO.insertStudentToDB(student);
     }
 }
