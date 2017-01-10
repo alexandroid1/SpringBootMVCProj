@@ -1,13 +1,12 @@
 package ua.alexandroid1.alex.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import ua.alexandroid1.alex.Entity.Student;
 import ua.alexandroid1.alex.Service.StudentService;
 
+import java.awt.*;
 import java.util.Collection;
 
 /**
@@ -27,7 +26,7 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-    // for one choosing by id
+    // for choosing one by id
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Student getStudentById(@PathVariable("id") int id){
         return studentService.getStudentByID(id);
@@ -39,5 +38,9 @@ public class StudentController {
         studentService.removeStudentById(id);
     }
 
-
+    // for update one by id
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updateStudent(@RequestBody Student student){
+        studentService.updateStudent(student);
+    }
 }

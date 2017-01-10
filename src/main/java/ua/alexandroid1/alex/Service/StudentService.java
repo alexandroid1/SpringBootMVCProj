@@ -18,15 +18,23 @@ public class StudentService {
     @Autowired
     private StudentDao studentDAO;
 
+    // for getting all
     public Collection<Student> getAllStudents(){
         return this.studentDAO.getAllStudents();
     }
 
+    // for choosing one by id
     public Student getStudentByID(int id){
         return this.studentDAO.getStudentByID(id);
     }
 
+    // for deleting one by id
     public void removeStudentById(int id) {
         this.studentDAO.removeStudentById(id);
+    }
+
+    // for updating one by id
+    public void updateStudent(Student student){
+        this.studentDAO.updateStudent(student);
     }
 }
