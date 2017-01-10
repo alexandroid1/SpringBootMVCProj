@@ -37,4 +37,9 @@ public class StudentService {
     public void updateStudent(Student student){
         this.studentDAO.updateStudent(student);
     }
+
+    // for inserting one new
+    public void insertStudent(Student student) {
+        this.studentDAO.insertStudentToDB(student);
+    }
 }

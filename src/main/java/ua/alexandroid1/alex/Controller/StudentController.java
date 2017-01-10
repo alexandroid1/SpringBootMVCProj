@@ -20,13 +20,13 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    // for getting all
+    // for get all
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
 
-    // for choosing one by id
+    // for choose one by id
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Student getStudentById(@PathVariable("id") int id){
         return studentService.getStudentByID(id);
@@ -42,5 +42,11 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void updateStudent(@RequestBody Student student){
         studentService.updateStudent(student);
+    }
+
+    // for insert one new
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void insertStudent(@RequestBody Student student){
+        studentService.insertStudent(student);
     }
 }

@@ -17,6 +17,7 @@ public class StudentDao {
 
     private static Map<Integer, Student> students;
 
+    // initialization for Map
     static {
         students = new HashMap<Integer, Student>(){
             {
@@ -32,7 +33,7 @@ public class StudentDao {
         return this.students.values();
     }
 
-    //get one by id
+    // get one by id
     public Student getStudentByID(int id){
         return this.students.get(id);
     }
@@ -50,4 +51,8 @@ public class StudentDao {
         students.put(student.getId(), student);
     }
 
+    // insert one new
+    public void insertStudentToDB(Student student) {
+        students.put(student.getId(), student);
+    }
 }
