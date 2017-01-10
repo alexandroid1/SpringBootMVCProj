@@ -1,5 +1,6 @@
 package ua.alexandroid1.alex.Dao;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import ua.alexandroid1.alex.Entity.Student;
 
@@ -13,6 +14,7 @@ import java.util.Map;
 
 //stereotype for persistence layer
 @Repository
+@Qualifier("fakeData")
 public class FakeStudentDao implements StudentDao {
 
     private static Map<Integer, Student> students;

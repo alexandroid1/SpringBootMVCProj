@@ -1,6 +1,7 @@
 package ua.alexandroid1.alex.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ua.alexandroid1.alex.Dao.FakeStudentDao;
 import ua.alexandroid1.alex.Entity.Student;
@@ -16,6 +17,7 @@ import java.util.Collection;
 public class StudentService {
 
     @Autowired
+    @Qualifier("fakeData")
     private FakeStudentDao fakeStudentDAO;
 
     // for getting all
