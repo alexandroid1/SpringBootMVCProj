@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ua.alexandroid1.alex.Dao.FakeStudentDao;
+import ua.alexandroid1.alex.Dao.StudentDao;
 import ua.alexandroid1.alex.Entity.Student;
 
 import java.util.Collection;
@@ -17,31 +18,33 @@ import java.util.Collection;
 public class StudentService {
 
     @Autowired
-    @Qualifier("fakeData")
-    private FakeStudentDao fakeStudentDAO;
+
+    // choose data source
+    @Qualifier("MongoData")
+    private StudentDao studentDAO;
 
     // for getting all
     public Collection<Student> getAllStudents(){
-        return this.fakeStudentDAO.getAllStudents();
+        return this.studentDAO.getAllStudents();
     }
 
     // for choosing one by id
     public Student getStudentByID(int id){
-        return this.fakeStudentDAO.getStudentByID(id);
+        return this.studentDAO.getStudentByID(id);
     }
 
     // for deleting one by id
     public void removeStudentById(int id) {
-        this.fakeStudentDAO.removeStudentById(id);
+        this.studentDAO.removeStudentById(id);
     }
 
     // for updating one by id
     public void updateStudent(Student student){
-        this.fakeStudentDAO.updateStudent(student);
+        this.studentDAO.updateStudent(student);
     }
 
     // for inserting one new
     public void insertStudent(Student student) {
-        this.fakeStudentDAO.insertStudentToDB(student);
+        this.studentDAO.insertStudentToDB(student);
     }
 }

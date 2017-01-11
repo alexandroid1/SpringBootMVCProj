@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import ua.alexandroid1.alex.Entity.Student;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -15,7 +16,11 @@ import java.util.Collection;
 public class MongoStudentDaoImpl implements StudentDao {
     @Override
     public Collection<Student> getAllStudents() {
-        return null;
+        return new ArrayList<Student>() {
+            {
+                add(new Student(1, "Mario", "Nothing"));
+            }
+        };
     }
 
     @Override
